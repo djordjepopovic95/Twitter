@@ -81,13 +81,11 @@ public class TwitterTest {
 
 	@Test
 	public void testVratiPorukeOK() {
-		TwitterPoruka[] tpNiz = new TwitterPoruka[4];
-		//tpNiz[0].setKorisnik("wtpnncs"); tpNiz[0].setPoruka("Los tvit."); 	
+		TwitterPoruka[] tpNiz = new TwitterPoruka[4];	
 		tpNiz[0] = new TwitterPoruka();
 		tpNiz[0].setKorisnik("wtpnncs"); tpNiz[0].setPoruka("Turbofolk mama."); 
 		tpNiz[1] = new TwitterPoruka();
 		tpNiz[1].setKorisnik("wtpnncs"); tpNiz[1].setPoruka("Turbofolk."); 	
-		//tpNiz[0].setKorisnik("wtpnncs"); tpNiz[0].setPoruka("Sve."); 	
 		
 		t.unesi("wtpnncs", "Los tvit.");
 		t.unesi("wtpnncs", "Turbofolk mama.");
