@@ -5,7 +5,11 @@ package com.twitter.poruke;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import com.twitter.Twitter;
 
 /**
  * @author Djordje Popovic
@@ -13,10 +17,20 @@ import org.junit.Test;
  */
 public class TwitterPorukaTest {
 
+	TwitterPoruka t;
+	
+	@Before
+	public void setUp() throws Exception {
+		t = new TwitterPoruka();
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		t = null;
+	}
 	
 	@Test
 	public void testSetKorisnikOK() {
-		TwitterPoruka t = new TwitterPoruka();
 		String korisnik = "karijatida";
 		t.setKorisnik(korisnik);
 		
@@ -25,7 +39,6 @@ public class TwitterPorukaTest {
 
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetKorisnikNull() {
-		TwitterPoruka t = new TwitterPoruka();
 		String korisnik = null;
 		t.setKorisnik(korisnik);
 		
@@ -33,7 +46,6 @@ public class TwitterPorukaTest {
 	
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetKorisnikPrazno() {
-		TwitterPoruka t = new TwitterPoruka();
 		String korisnik = "";
 		t.setKorisnik(korisnik);
 		
@@ -41,7 +53,6 @@ public class TwitterPorukaTest {
 	
 	@Test
 	public void testSetPorukaOK() {
-		TwitterPoruka t = new TwitterPoruka();
 		String poruka = "6 minutes late and counting";
 		t.setPoruka(poruka);
 		
@@ -50,7 +61,6 @@ public class TwitterPorukaTest {
 
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetPorukaNull() {
-		TwitterPoruka t = new TwitterPoruka();
 		String poruka = null;
 		t.setPoruka(poruka);
 		
@@ -58,7 +68,6 @@ public class TwitterPorukaTest {
 	
 	@Test (expected = java.lang.RuntimeException.class)
 	public void testSetPorukaPredugacka() {
-		TwitterPoruka t = new TwitterPoruka();
 		String poruka = "1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980";
 		t.setPoruka(poruka);
 		
@@ -66,7 +75,6 @@ public class TwitterPorukaTest {
 	
 	@Test
 	public void testToString() {
-		TwitterPoruka t = new TwitterPoruka();
 		t.setKorisnik("karijatida");
 		t.setPoruka("6 minutes late and counting");
 		String toString = "KORISNIK:" + t.getKorisnik() + " PORUKA:" + t.getPoruka();

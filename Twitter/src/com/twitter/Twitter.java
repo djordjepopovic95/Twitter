@@ -3,6 +3,12 @@ package com.twitter;
 import java.util.LinkedList;
 import com.twitter.poruke.TwitterPoruka;
 
+/**
+ * Sadrži lisu sa porukama (klasa TwitterPoruka), metodu za unošenje nove poruke, metodu koja vraæa sve poruke u obliku niza
+ * i metodu koja pretražuje poruke pomoæu prosleðenog taga.
+ * @author Djordje Popovic
+ *
+ */
 public class Twitter {
 	
 	/**
@@ -36,6 +42,7 @@ public class Twitter {
 	 * Vraca niz objekata TwitterPoruka koje u poruci sadrze prosledjeni tag
 	 * @param maxBroj Maksimalna duzina niza koji se vraca
 	 * @param tag Kriterijum za pretrazivanje
+	 * @throws RuntimeException Ako uneti tag ima vrednos null ili je prazan string
 	 * @return TwitterPoruka[]
 	 */
 	public TwitterPoruka[] vratiPoruke(int maxBroj, String tag) {
